@@ -1,0 +1,20 @@
+<apex:page standardController="Contact" recordSetVar="contacts" title="Contact List" lightningStylesheets="true" >
+    <apex:panelGroup >
+        <h1>
+            Header
+        </h1>
+    </apex:panelGroup>
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{! contacts}" var="ct">
+            <apex:column value="{! ct.FirstName }" />
+            <apex:column value="{! ct.LastName }" />
+            <apex:column value="{! ct.Email }" />
+            <apex:column value="{! ct.Account.Name }" />
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    <apex:panelGroup >
+        <h1>
+            Footer
+        </h1>
+    </apex:panelGroup>
+</apex:page>
