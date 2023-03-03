@@ -3,4 +3,7 @@
 //     query text and running the command:
 //     SFDX: Execute SOQL Query with Currently Selected Text
 
-SELECT Id, Name FROM Account
+SELECT Id, Name FROM Account;
+SELECT Id FROM Order WHERE ActivatedDate != NULL;
+SELECT Product2Id,MAX(Product2.Quantity_Ordered__c),SUM(Quantity) FROM OrderItem GROUP BY Product2Id
+SELECT Id,Name,Family,Initial_Inventory__c,Quantity_Ordered__c,Quantity_Remaining__c FROM Product2

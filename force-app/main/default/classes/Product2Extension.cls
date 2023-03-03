@@ -1,5 +1,10 @@
 public class Product2Extension {
 
+    class ProductWrapper {
+        Product2 productRecord;
+        PriceBookEntry pricebookEntryRecord;
+    }
+
     public List<Product2> productsToInsert {get;set;}
 
     public Product2Extension(){
@@ -7,8 +12,17 @@ public class Product2Extension {
         addRows();
     }
 
+    public List<SelectOption> GetFamilyOptions(){
+        List<SelectOption> options = new List<SelectOption>();
+        options.add(new SelectOption(Constants.SELECT_ONE,Constants.SELECT_ONE));
+        for(Schema.PicklistEntry entry : Constants.PRODUCT_FAMILY){
+            options.add(new SelectOption(entry.getLabel(),entry.getValue()));
+        }
+        return options;
+    }
+
     public void AddRows(){
-        for ( Integer i=0; i<2; i++ ){
+        for ( Integer i=0; i<Constants.DEFAULT_ROWS; i++ ){
             productsToInsert.add( new Product2() );
         }
     }
